@@ -1,0 +1,37 @@
+
+p { 
+
+    padding-left: 3em;
+    position: relative;
+    line-height: 1.25em;
+    text-align: justify;
+    font-weight: 400;
+    font-size: 12.0pt;
+    font-family: "Calibri",sans-serif;
+}
+p > span {
+    font-family:"Times New Roman";
+    font-weight: 500;
+    font-size: 11.0pt;
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2em;
+}
+p > br:first-child + span {
+    top: 1.25em;
+    /* this fixes position in case the <p> starts with a <br/> */
+}
+td{
+    font-weight: 400;
+    font-size: 12.0pt;
+    line-height: 1.25em;
+    font-family: "Calibri",sans-serif;
+}
+.maincolhead
+{
+    font-weight: 550;
+    font-size: 14.0pt;
+    font-family: "Calibri",sans-serif;
+}

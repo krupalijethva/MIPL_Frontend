@@ -1,0 +1,923 @@
+<div class="m-subheader" appunwraptag="" style="padding: 10px 30px 0 35px;">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">
+				Candidate Profile 
+			</h3>
+			<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a href="#" class="m-nav__link m-nav__link--icon">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+              Form Stuff
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div>
+		</div>
+	</div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content" style="width:100%;">
+	
+  <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+    <div class="m-portlet__head headsize" >
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <span class="m-portlet__head-icon">
+            <i class="fa fa-gift"></i>
+          </span>
+          <h3 class="m-portlet__head-text">
+            CANDIDATE DETAILS
+          </h3>
+        </div>
+      </div>
+     
+    </div>
+   
+    <div class="m-portlet__body" style="padding-top: 5px;">
+
+      <div class="m-section">
+        <div class="m-section__content">
+          <div class="row">
+
+
+            <div  class ="col-md-6 col-sm-6" style="margin-left: 5%;max-width: 15%;padding-bottom:5px;">
+                <img src="{{'http://localhost:8080/getImageById?userid='+userid}}" alt="logo" class="m--img-rounded m--marginless m--img-centered" style="width:150px;height:200px;left:100px"/>
+                <div style="padding: 10px;font-size: 20px;font-weight: 600;color: #716aca;" >
+                  {{candidate?.first_name +' '+ candidate?.last_name}}
+                </div>
+            </div>
+            <div>
+              
+            </div>
+            <div class ="col-md-6 col-sm-6" style="padding-top: 40px;">
+                <div style="width: 55%;margin-left: 52%;">
+                    <h1 class="block" style="margin-top:0%"><b>Personal Details </b>
+                    </h1>  
+                </div>                
+            </div>
+
+          </div>
+          <table class="table table-striped m-table" style="border-collapse: collapse;">
+            <thead>
+              <tr>
+               
+                
+              </tr>
+            </thead>
+            <tbody style="line-height: 15px;font-size: 14px;">
+              
+
+              <tr>
+                <td class="resize">
+                  
+                    Candidate ID
+                </td>
+                <td>
+                  {{candidate?.user_id}} 
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Branch	
+                </td>
+                <td>
+                  {{candidate?.branch}}
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Have You Applied Previously?	
+                </td>
+                <td>
+                  {{candidate?.applied_previosly}}
+                </td>
+              </tr>
+              <tr>
+                <td  class="resize">
+                  
+                  First Name
+                </td>
+                <td>
+                  {{candidate?.first_name}}
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Middle Name
+                </td>
+                <td>
+                  {{candidate?.middle_name}}
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Last Name
+                </td>
+                <td>
+                  {{candidate?.last_name}}
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Email
+                </td>
+                <td>
+                  {{candidate?.email}}
+                </td>
+              </tr>
+  
+              <tr>
+                <td class="resize">
+                  
+                  Gender
+                </td>
+                <td>
+                  {{candidate?.gender}}
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Marital Status
+                </td>
+                <td>
+                  {{candidate?.marital_status}}
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  
+                  Date of Birth
+                </td>
+                <td>
+                  {{candidate?.birth_date | date:'dd-MM-yyyy'}} 
+                </td>
+              </tr>
+  
+              <tr>
+                  <td class="resize">
+                  
+                  Contact Number
+                </td>
+                <td>
+                  {{candidate?.contact_number}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                    Applied For	
+                </td>
+                <td>
+                  {{candidate?.appliedtype}}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">Address</h4>
+                   
+                </th>
+                <td>
+                
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Present Address
+                </td>
+                <td>
+                  {{candidate?.present_address}}
+                </td>
+              </tr>
+              <tr>
+              <td class="resize">
+                  
+                  Present City/Town
+                </td>
+                <td>
+                  {{candidate?.present_city}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Present City Postal Code
+                </td>
+                <td>
+                  {{candidate?.present_code}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Present State
+                </td>
+                <td>
+                  {{candidate?.present_state}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Present Country
+                </td>
+                <td>
+                  {{candidate?.present_country}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Permanent Address
+                </td>
+                <td>
+                  {{candidate?.permanent_address}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Permanent City/Town
+                </td>
+                <td>
+                  {{candidate?.permanent_city}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Permanent City Postal Code
+                </td>
+                <td>
+                  {{candidate?.permanentt_code}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Permanent State
+                </td>
+                <td>
+                  {{candidate?.permanent_state}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Permanent Country
+                </td>
+                <td>
+                  {{candidate?.permanent_country}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                    Preferred Mailing Address
+                </td>
+                <td>
+                  {{candidate?.mailing_address}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                   <h4 class="block">References</h4>
+                </td>
+                <td>
+                 
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Reference 1
+                </td>
+                <td>
+                  {{candidate?.reference1}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  Reference 2
+                </td>
+                <td>
+                  {{candidate?.reference2}}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">ID Proof Number</h4>
+                </th>
+                <td>
+              
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  
+                  PAN Card Number
+                </td>
+                <td>
+                  {{candidate?.pan_number}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Passport Number
+                </td>
+                <td>
+                  {{candidate?.passport_number}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Aadhar Card Number	
+                </td>
+                <td>
+                  {{candidate?.adhar_number}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Election Card Number
+                </td>
+                <td>
+                  {{candidate?.election_number}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                  Driving License Number
+                </td>
+                <td>
+                  {{candidate?.driving_number}}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="resize">
+                 <h4 class="block"> </h4>
+                </th>
+                <td>
+                 
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                    Willingness to work in shift	
+                  
+                  </td>
+                <td>
+                  {{candidate?.wellness_work}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                    Area Of Interest	                
+                  </td>
+                <td>
+                  {{candidate?.area_intrested}}
+                </td>
+              </tr>
+              <tr>
+                  <td class="resize">
+                    Last Salary Package	
+                  </td>
+                <td>
+                  {{candidate?.salary_pakage}}
+                </td>
+              </tr>
+              
+              <tr>
+
+                <th scope="row" class="resize">
+                  <h4 class="block">Qualification Details</h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;" >
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="flaticon-placeholder-2"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                  Qualification
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable" >
+                            <table class="table table-bordered m-table" style="background-color: white;">
+                                <thead>
+                                  <tr style="background-color: white;">
+                                    <th>
+                                      Qualification
+                                    </th>
+                                    <th>
+                                      Specialization
+                                    </th>
+                                    <th>
+                                      School/Collage
+                                    </th>
+                                    <th>
+                                      Board/University
+                                    </th>
+                                    <th>
+                                      Percentage/CPI
+                                    </th>
+                                    <th>
+                                      Start Date
+                                    </th>
+                                    <th>
+                                      End Date
+                                    </th>
+              
+                                  </tr>
+                                </thead>
+                                <tbody>
+
+                                  	<tr *ngFor="let qualification of candidate.qualificationdetail">
+                                        <td>
+                                            {{qualification?.qualification}}
+                                          </td>
+                                          <td>
+                                            {{qualification?.speicalization}}
+                                          </td>
+                                          <td>
+                                              {{qualification?.school_collage}}
+                                          </td>
+                                          <td>
+                                              {{qualification?.board_uni}}
+                                          </td>
+                                          <td>
+                                              {{qualification?.persentage}}
+                                          </td>
+                                          <td>
+                                              {{qualification?.startdate | date:'MM-yyyy'}}
+                                          </td>
+                                          <td>
+                                              {{qualification?.enddate | date:'MM-yyyy'}}
+                                          </td>
+                                    </tr>
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                      </div> 
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">Training/Course Detail</h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="fa fa-gift"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                  Training/Course
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                      
+                                      Training/Course Topic
+                                    </th>
+                                    <th>
+                                        From Date
+                                    </th>
+                                    <th>
+                                        To Date
+                                    </th>
+                                    <th>
+                                        Institute/Organization
+                                    </th>
+                                    <th>
+                                        Remark
+                                    </th>
+                                    
+              
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let training of candidate.trainingdetail">
+                                  
+                                    <td>
+                                      {{training.course_name}}
+                                    </td>
+                                    <td>
+                                      {{training.from_date | date:'MM-yyyy'}}
+                                    </td>
+                                    <td>
+                                     {{training.to_date | date:'MM-yyyy'}}
+                                    </td>
+                                    <td>
+                                      {{training.institute}}
+                                    </td>
+                                    <td>
+                                      {{training.remark}}
+                                    </td>
+                                    
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                      </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">Language</h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="fa fa-gift"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                  Language
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                        Language
+                                    </th>
+                                    <th>
+                                        Speak
+                                    </th>
+                                    <th>
+                                        Read
+                                    </th>
+                                    <th>
+                                        Write
+                                    </th>
+                                    
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let lang of candidate.languagedetail">
+                                    <td>
+                                      {{lang.lanuguage}}
+                                    </td>
+                                    <td>
+                                      {{lang.speak_level}}
+                                    </td>
+                                    <td>
+                                      {{lang.read_level}}
+                                    </td>
+                                    <td>
+                                      {{lang.write_level}}   
+                                    </td>
+                                   
+                                  </tr>
+                                 
+                      
+                                </tbody>
+                              </table>
+                        </div>
+                      </div>
+                  
+                 
+                </td>
+              </tr>
+              
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">Work Experience</h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="fa fa-gift"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                  Work Experience
+
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                        Company Name
+                                    </th>
+                                    <th>
+                                        Designation
+                                    </th>
+                                    <th>
+                                        Joining Date
+                                    </th>
+                                    <th>
+                                        Reliving Date
+                                    </th>
+                                    <th>
+                                        Nature Of Duties
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let expirence of candidate.expirencedetail">
+                                    <td>
+                                    {{expirence.company_name}}
+                                    </td>
+                                    <td>
+                                      {{expirence.designation}}
+                                    </td>
+                                    <td>
+                                      {{expirence.joining_date | date:'dd-MM-yyyy'}}
+                                    </td>
+                                    <td>
+                                      {{expirence.reliving_date | date:'dd-MM-yyyy'}}
+                                    </td>
+                                    <td>
+                                      {{expirence.nature_duties}}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                      </div>
+                </td>
+              </tr>
+  
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">Software Skill
+                    </h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="fa fa-gift"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                  Software Skill
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                        Software Skill
+                                    </th>
+                                    <th>
+                                        Proficiency
+                                    </th>
+                                   
+              
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let software of candidate.softwaredetail">
+                                    <td>
+                                     {{software.software_name}}
+                                    </td>
+                                    <td>
+                                      {{software.proficiency}}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                      </div>
+                  
+                 
+                </td>
+              </tr>
+  
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">Extra Curricular Activity</h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="fa fa-gift"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                  Activity
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                        Name Of Activity
+                                    </th>
+                                    <th>
+                                        Institute/Association Society/ club
+                                    </th>
+                                    <th>
+                                      	Year
+                                    </th>
+                                    <th>
+                                        Prizes Won
+                                    </th>
+                                  
+              
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let activity of candidate.activitydetail">
+                                    <td>
+                                      {{activity.activity_name}}
+                                    </td>
+                                    <td>
+                                      {{activity.activity_institute}}
+                                    </td>
+                                    <td>
+                                      {{activity.year | date:'MM-yyyy'}}
+                                    </td>
+                                    <td>
+                                      {{activity.prize_won}}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                      </div>
+                </td>
+              </tr>
+  
+              <tr>
+                <th scope="row" class="resize">
+                  <h4 class="block">MemberShip</h4>
+                </th>
+                <td>
+                    <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+                        <div class="m-portlet__head headsize" style="background-color: #948de7;border-color: #948de7;">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                              <span class="m-portlet__head-icon">
+                                <i class="fa fa-gift"></i>
+                              </span>
+                              <h3 class="m-portlet__head-text">
+                                 
+                                Membership
+                              </h3>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="m-portlet__body spacetable">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                        Membership
+                                    </th>
+                                    <th>
+                                        Expiry Date
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let membership of candidate.membershipdetail">
+                                    <td>
+                                      {{membership.membership_name}}
+                                    </td>
+                                    <td>
+                                      {{membership.expiry_date | date:'MM-yyyy'}}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                      </div>
+                  
+                 
+                </td>
+              </tr>
+             
+              <tr>
+                <th scope="row" class="resize">
+                  
+                   <h4 class="block">Health Information</h4>
+                </th>
+                <td>
+               
+                </td>
+              </tr>
+              <tr>
+               
+  
+              
+              <tr>
+                <td class="resize">
+                    Major Illness	
+                </td>
+                <td>
+                    {{candidate?.major_illness}}
+                </td>
+              </tr>
+  
+              <tr>
+                  <td class="resize">
+                  If You Share Any Other Information
+                  
+                </td>
+                <td>
+                    {{candidate?.other_information}}
+                </td>
+              </tr>
+  
+              <tr>
+                <th scope="row" class="resize">
+                 <h4 class="block">Upload File</h4>
+                  
+                </th>
+                <td>
+                 
+                </td>
+              </tr>
+              <tr>
+                <td class="resize">
+                  Resume
+              </td>
+              <td>
+                <a href="#" (click)="getFile(candidate.new_resume,candidate.upload_resume)" >{{candidate?.upload_resume}}</a>  
+              </td>
+            </tr>
+            <tr>
+              <td class="resize">
+                Photo
+            </td>
+            <td>
+               <a href="#" (click)="getPhoto(candidate.newphoto,candidate.photo)" >{{candidate?.photo}}</a> 
+            </td>
+          </tr>
+              
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+

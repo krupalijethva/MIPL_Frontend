@@ -1,0 +1,317 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="" style="padding: 10px 30px 0 35px;">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">
+        Manage Leave
+			</h3>
+			<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a href="#" class="m-nav__link m-nav__link--icon">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Leave Management
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Manage Leave
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div>
+		</div>
+	</div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content" style="width:100%;">
+	<div class="alert alert-brand m-alert m-alert--icon m-alert--air m-alert--square m--margin-bottom-30" role="alert" style="margin-bottom: 10px !important;">
+
+    <div class="m-alert__icon">
+			<i class="flaticon-calendar"></i>
+		</div>
+		<div class="m-alert__text" >
+      Leave Credit: {{remaining_leave}}
+		</div>
+  </div>  
+  <div class="m-portlet m-portlet" >
+
+      <div class="m-portlet__head"  style="background-color: white;">
+          <div class="m-portlet__head-caption" >
+            <div class="m-portlet__head-title">
+              <div class="m-portlet__head-text">
+                  <button class="btn m-btn--pill    btn-brand m-btn m-btn--custom m-btn--bolder m-btn--uppercase" style="margin-left: 26%;" type="submit" (click)="applyLeave()">Apply Leave</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="m-portlet__body" [hidden]="showForm" style="line-height:0 !important;" >
+        <div class="row" >
+          <div class="col-lg-6"  style="margin-left:25%;margin-right: 25%;" >
+            <div class="m-portlet m-portlet--tab">
+                  <div class="m-portlet__head" style="height:40px;">
+                    <div class="m-portlet__head-caption">
+                      <div class="m-portlet__head-title">
+                        <span class="m-portlet__head-icon m--hide">
+                          <i class="la la-gear"></i>
+                        </span>
+                        <h3 class="m-portlet__head-text">
+                        Fill Up Neccesary Details
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <!--begin::Form-->
+                  <form class="m-form m-form--fit m-form--label-align-right" id="m_form_2" action="" (ngSubmit)="leaveSubmit()">
+                    <div class="m-portlet__body">
+                      <div class="form-group m-form__group row">
+                        <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                        Employee ID
+                        </label>
+                        <div class="col-9">
+                        <input type="text"  [(ngModel)]="user.employeeid" name="empid" disabled class="form-control m-input m-input--air" id="exampleInputEmail1" >
+                        </div>
+                      </div>
+      
+                      <div class="form-group m-form__group row">
+                        <label for="exampleInputPassword1" class="col-3 col-form-label" style="padding-top: 3px;text-align:start;">
+                          Employee Name
+                        </label>
+                        <div class="col-9">
+                        <input type="text" [(ngModel)]="user.fullname" name="fullname" disabled class="form-control m-input m-input--air" id="exampleInputPassword1">
+                        </div>
+                      </div>
+      
+                      <div class="form-group m-form__group row">
+                        <label for="exampleSelect1" class="col-3 col-form-label"  style="padding-top: 3px;text-align:start;">
+                          Project Leader*
+                        </label>
+                        <div class="col-9">
+                        <select [(ngModel)]="selectedLeader"  class="form-control m-input m-input--air"  name="ProjectLead">
+                        
+                          <option *ngFor="let teamlead of userlist; index as i" [ngValue]='teamlead.fullname'>{{teamlead.fullname}}</option>    
+                        
+                        </select>
+                        
+                        </div>
+                      </div>
+      
+                      <div class="form-group m-form__group row">
+                        <label for="exampleSelect1" class="col-3 col-form-label" style="text-align:start;">
+                          Leave Type *
+                        </label>
+                        <div class="col-9">
+                        <select name="GeneralLeave" class="form-control m-input m-input--air" [(ngModel)]="leavetype" >
+                          <option disabled>
+                            Select Type
+                          </option>
+                          <option value="General Leave">
+                            General Leave
+                          </option>
+                        </select>
+                      
+                        </div>
+                      </div>
+      
+                      <div class="form-group m-form__group row">
+                        <label for="exampleSelect1" class="col-3 col-form-label" style="text-align:start;">
+                          Duration *
+                        </label>
+                        <div class="col-9">
+                        <select name="duration" [(ngModel)]="durationval" class="form-control m-input m-input--air" (change)="select($event)" >
+                          <option value="FULLDAY">Full Day</option>    
+                          <option value="PARTIAL_DAY">Partial Day</option>
+                        </select>
+                        
+                        </div>
+                      </div>
+      
+      
+                      <div  [hidden]="full">
+                    
+                        <div class="form-group m-form__group row">
+                        <label for="recipient-name" class="col-3 col-form-label" style="text-align: start;">
+                          From Date
+                        </label>
+                      
+                        <div class="col-9">
+                          <div class="input-group date">
+                            <input type="text" autocomplete="off" class="form-control m-input" name="fromdate" placeholder="Select date" id="m_datepicker_2"/>
+                      
+                                <div class=" input-group-append">
+                                    <span class="input-group-text" >
+                                      <i class="la la-calendar-check-o"></i>
+                                    </span>
+                                </div>
+                                </div>
+                        </div>
+                      </div>
+                        
+                        <div class="form-group m-form__group row">
+                        <label for="recipient-name" class="col-3 col-form-label" style="text-align: start;">
+                            To Date
+                          </label>
+                          <div class="col-9">
+                              <div class="input-group date">
+                                <input type="text" autocomplete="off" class="form-control m-input" name="todate" placeholder="Select date" id="todatepicker"/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                          <i class="la la-calendar-check-o"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                          </div>
+                      </div>
+                      </div>
+      
+                      <div   [hidden]="partial">
+                        <div class="form-group m-form__group row">
+                          <label for="fromdate" class="col-3 col-form-label" style="text-align:start;">
+                            From
+                          </label>
+                  
+                          <div class="col-9" >
+                            <div class="input-group date " >
+                              <input type="text" autocomplete="off"  class="form-control m-input" style="margin-bottom: 10px;" name="fromdatetime" placeholder="Select date and time" id="m_datetimepicker_5"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="margin-bottom: 10px;">
+                                      <i class="la la-calendar glyphicon-th"></i>
+                                    </span>
+                                </div>
+                              </div>
+                          </div> 
+                        </div>
+                        <br>
+                        <div class="form-group m-form__group row">
+                          <label for="todate" class="col-3 col-form-label" style="text-align:start;">
+                          To Date
+                          </label>
+                  
+                          <div class="col-9" >
+                            <div class="input-group date ">
+                              <input type="text" class="form-control m-input" autocomplete="off" name="todatetime" placeholder="Select date and time" id="todate"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                      <i class="la la-calendar glyphicon-th"></i>
+                                    </span>
+                                </div>
+                            </div>
+                          </div> 
+                          </div>
+                          
+      
+                      </div>
+      
+      
+      
+                      <div class="form-group m-form__group row">
+                        <label for="exampleTextarea" class="col-3 col-form-label" style="text-align:start;">
+                          Reason
+                        </label>
+                        <div class="col-9">
+                        <textarea [(ngModel)]="reason" name="reason" class="form-control m-input m-input--air" id="exampleTextarea" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                      <div class="m-form__actions" style="padding-left:40%">
+                        <button type="submit" class="btn btn-accent">
+                          Submit
+                        </button>
+                        <button type="reset" (click)="hideForm()" class="btn btn-secondary">
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                 <!--end::Form-->
+            </div>
+         
+          </div>
+        </div>
+      </div>
+  </div>  
+  <div class="m-portlet m-portlet"> 
+      <div class="m-portlet__head" style="height: 4.1rem;">
+              <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                  <h3 class="m-portlet__head-text">
+                    <i class="flaticon-calendar"></i>
+                    Leave Records
+                  </h3>
+                </div>
+              </div>
+      </div>
+      <div class="m-portlet__body">
+                  <!--begin: Search Form -->
+                  <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                    <div class="row align-items-center">
+                      <div class="col-xl-8 order-2 order-xl-1">
+                        <div class="form-group m-form__group row align-items-center">
+                          <div class="col-md-4">
+                            <div class="m-form__group m-form__group--inline">
+                              <div class="m-form__label">
+                                <label>
+                                  Status:
+                                </label>
+                              </div>
+                              <div class="m-form__control">
+                                <select class="form-control m-bootstrap-select" id="m_form_status">
+                                  <option value="">
+                                        All
+                                      </option>
+                                      <option value="PENDING_ADMIN">
+                                        UNDER REVIEW ADMIN
+                                      </option>
+                                      <option value="REJECT">
+                                          DENIED
+                                      </option>
+                                      <option value="APPROVED">
+                                        APPROVED
+                                      </option>
+                              
+                                      <option value="PENDING_TEAMLEAD">
+                                        UNDER REVIEW TL
+                                      </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="d-md-none m--margin-bottom-10"></div>
+                          </div>
+            
+                          <div class="col-md-4">
+                            <div class="m-input-icon m-input-icon--left">
+                              <input type="text" class="form-control m-input" placeholder="Search..." id="generalSearch">
+                              <span class="m-input-icon__icon m-input-icon__icon--left">
+                                <span>
+                                  <i class="la la-search"></i>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            
+                    </div>
+                  </div>
+                  <!--end: Search Form -->
+                  <!--begin: Datatable -->
+                  <div class="m_datatable" id="leavedetail_data"></div>
+                  <!--end: Datatable -->
+      </div>
+  </div>
+

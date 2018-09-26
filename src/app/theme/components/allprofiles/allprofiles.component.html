@@ -1,0 +1,141 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="" style="padding: 10px 30px 0 35px;">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">
+				Candidates Profiles 
+			</h3>
+			<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a href="#" class="m-nav__link m-nav__link--icon">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Interview Module 
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Candidates Details
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div>
+		
+		</div>
+	</div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content" style="width:100%;">
+	<!--begin::Portlet-->
+	<!--Begin Datatable-->
+	<div class="m-portlet m-portlet--mobile">
+				<div class="m-portlet__head" style="height: 4.1rem;">
+					<div class="m-portlet__head-caption">
+						<div class="m-portlet__head-title">
+							<h3 class="m-portlet__head-text">
+								<i class="flaticon-users"></i>
+								Candidates Profiles
+							</h3>
+						</div>
+					</div>
+					
+				</div>
+				<div class="m-portlet__body">
+					<!--begin: Search Form -->
+					<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+						<div class="row align-items-center">
+							<div class="col-xl-8 order-2 order-xl-1">
+								<div class="form-group m-form__group row align-items-center">		
+									<div class="col-md-4">
+										<div class="m-input-icon m-input-icon--left">
+											<input type="text" class="form-control m-input" placeholder="Search..." id="generalSearch">
+											<span class="m-input-icon__icon m-input-icon__icon--left">
+												<span>
+													<i class="la la-search"></i>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<!--end: Search Form -->  		<!--begin: Datatable -->
+					<div class="m_datatable" id="allcandidate_data"></div>
+					<!--end: Datatable -->
+				</div>
+			</div>
+ <!--end Datatable-->
+   
+<!--end::Portlet-->
+
+<!--end::Portlet-->
+</div>
+
+
+<!--Model For Approve,Deny With Comment-->
+<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document" style="width: 100% !important;">
+		<div class="modal-content">
+			<div class="modal-header" >
+				<h5 class="modal-title" id="exampleModalLabel">
+					Approve,Deny Punching Record
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">
+						&times;
+					</span>
+				</button>
+			</div>
+	
+		<div class="modal-body">
+			<form >
+		 
+					<div class="form-group">
+                 
+						<input type="hidden" [(ngModel)]="userid" name="userid">
+          			</div>
+					<div class="form-group m-form__group row">
+					
+						<label for="recipient-name" class="col-2 col-form-label">
+							Username
+						</label>
+						<div class="col-10">
+							<select [(ngModel)]="candidateUsername"  class="form-control m-input m-input--air"  name="ProjectLead">
+                  
+								<option *ngFor="let username of emailList; index as i" [ngValue]='username'>{{username}}</option>    
+							  
+							</select>
+						</div>
+					</div>
+				
+			</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					Close
+				</button>
+				<button type="button" (click)="moveToEmp(userid)" class="btn btn-primary" id="punchsave" data-dismiss="modal">
+					Move
+				</button>
+			
+			</div>
+		</div>
+	</div>
+</div>
+

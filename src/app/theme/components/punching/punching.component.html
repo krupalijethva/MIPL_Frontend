@@ -1,0 +1,496 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="" style="padding:10px 30px 0 30px;">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h3 class="m-subheader__title m-subheader__title--separator">
+          Time Punching
+        </h3>
+        <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+          <li class="m-nav__item m-nav__item--home">
+            <a href="#" class="m-nav__link m-nav__link--icon">
+              <i class="m-nav__link-icon la la-home"></i>
+            </a>
+          </li>
+          <li class="m-nav__separator">
+            -
+          </li>
+          <li class="m-nav__item">
+            <a href="" class="m-nav__link">
+              <span class="m-nav__link-text">
+              Punching
+              </span>
+            </a>
+          </li>
+          <li class="m-nav__separator">
+            -
+          </li>
+          <li class="m-nav__item">
+            <a href="" class="m-nav__link">
+              <span class="m-nav__link-text">
+                Time Punching
+              </span>
+            </a>
+          </li>
+          <li class="m-nav__separator">
+            -
+          </li>
+          <li class="m-nav__item">
+            <a href="" class="m-nav__link">
+              <span class="m-nav__link-text">
+                Punching Data
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+  
+      </div>
+    </div>
+  </div>
+  <!-- END: Subheader -->
+  <div class="m-content">
+    <div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
+      <div class="m-alert__icon">
+    
+      </div>
+      <div class="m-alert__text">
+        <div style=" display:block;margin-left: auto;margin-right: auto;width: 30%;">
+        <table>
+					<tr>
+						<td>
+							<div *ngIf="status == '';else showelse">
+								<button type="button" class="btn m-btn--pill m-btn--air btn-brand">
+									Punch In
+								</button>
+							</div>
+							<ng-template #showelse>
+								<button type="button" disabled  class="btn m-btn--pill m-btn--air btn-brand">
+									Punch In
+								</button>
+							</ng-template>
+						</td>
+						<td>
+							<div *ngIf="status == 'LOGGEDIN';else showelse1">
+								<button type="button" (click)="breakstart()" id="breakstart" class="btn m-btn--pill m-btn--air btn-metal">
+									Break Start
+								</button>
+							</div>
+							<ng-template #showelse1>
+								<button type="button" disabled class="btn m-btn--pill m-btn--air btn-metal">
+									Break Start
+								</button>
+							</ng-template>
+						</td>
+						<td>
+							<div *ngIf="status == 'BREAKOUT';else showelse2">
+								<button type="button" (click)="breakstop()" id="breakstop" class="btn m-btn--pill m-btn--air btn-metal">
+									Break Stop
+								</button>
+							</div>
+							<ng-template #showelse2>
+								<button type="button" disabled class="btn m-btn--pill m-btn--air btn-metal">
+									Break Stop
+								</button>
+							</ng-template>
+						</td>
+						<td>		
+							<div *ngIf="status == 'LOGGEDIN';else showelse3">
+								<button type="button" (click)="logout()" class="btn m-btn--pill m-btn--air btn-brand">
+									Punch Out
+								</button>
+															
+							</div>
+							<ng-template #showelse3>
+								<button type="button" disabled class="btn m-btn--pill m-btn--air btn-brand">
+									Punch Out
+								</button>
+															
+							</ng-template>
+						</td>					
+					</tr>					
+				</table>
+        </div>
+
+      </div>
+    </div>
+    <div class="m-portlet m-portlet--mobile">
+      <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+          <div class="m-portlet__head-title">
+            <h3 class="m-portlet__head-text">
+              <i class="la la-clock-o"></i>
+                Last 30 Days Punching Records
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="m-portlet__body">
+        <!--begin: Search Form -->
+        <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+          <div class="row align-items-center">
+            <div class="col-xl-8 order-2 order-xl-1">
+              <div class="form-group m-form__group row align-items-center">
+                <div class="col-md-4">
+                  <div class="m-form__group m-form__group--inline">
+                    <div class="m-form__label">
+                      <label>
+                        Status:
+                      </label>
+                    </div>
+                    <div class="m-form__control">
+                      <select class="form-control m-bootstrap-select" id="m_form_status">
+                        <option value="">
+                          All
+                        </option>
+                        <option value="UNDER_REVIEW">
+                          UNDER_REVIEW
+                        </option>
+                        <option value="INCOMPLETE">
+                          INCOMPLETE
+                        </option>
+                        <option value="MODIFIED">
+                          MODIFIED
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="d-md-none m--margin-bottom-10"></div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="m-input-icon m-input-icon--left">
+                    <input type="text" class="form-control m-input" placeholder="Search..." id="generalSearch">
+                    <span class="m-input-icon__icon m-input-icon__icon--left">
+                      <span>
+                        <i class="la la-search"></i>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+              <button (click)="showDate()"data-toggle="modal" data-target="#NewPunch" class="btn m-btn--pill    btn-outline-primary m-btn m-btn--custom">
+                <span>
+                  <i class="la la-plus-circle"></i>
+                  <span>
+                    New Punch
+                  </span>
+                </span>
+              </button>
+              <div class="m-separator m-separator--dashed d-xl-none"></div>
+            </div>
+          </div>
+        </div>
+        <!--end: Search Form -->  		<!--begin: Datatable -->
+        <div class="m_datatable" id="punching_data"></div>
+        <!--end: Datatable -->
+      </div>
+    </div>
+  </div>
+
+<!-- Edit Punching Form Starts -->
+
+  <div class="modal fade" id="NewPunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+	        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              New Time Punching
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                &times;
+              </span>
+            </button>
+          </div>
+				<div class="modal-body">
+					<form id="newPunchForm" #form>
+             
+            <div class="form-group">
+                 
+                  <input type="hidden" 
+                  [(ngModel)]="punchingEditObj.idPunching" name="idpunching">
+                  
+            </div>
+          
+      
+            <div class="form-group">
+              <div class="form-group m-form__group row">
+                  <div class="col-lg-12">
+              <label for="recipient-name" class="form-control-label">
+                  Punching Date
+              </label>
+              <div class="input-group date">
+                  <input type="text" autocomplete="off" class="form-control m-input" placeholder="Select date" name="Date" id="newpunchingdate"/>
+                      <div class="input-group-append">
+                          <span class="input-group-text">
+                            <i class="la la-calendar-check-o"></i>
+                          </span>
+                      </div>
+              </div>
+           </div>
+           </div>         
+           </div>
+      
+            <div class="form-group">
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-12">
+							<label for="recipient-name" class="form-control-label">
+								Login Time
+							</label>
+                <div>
+                  <div class='input-group timepicker' >
+                    <input type='text' autocomplete="off" class="form-control m-input" id='m_timepicker_2_modal' name="loginTime" [ngModel]="punchingEditObj.loginTime | date:'hh:mm'" (ngModelChange)="onchangein($event)" placeholder="Select time">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="la la-clock-o"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+               
+                  <label for="recipient-name" class="form-control-label">
+                    Break Time
+                  </label>
+                  <div class=" form-group m-form__group row">
+                    <div class="col-sm-4 col-md-7 col-lg-4">
+                      <div class='input-group timepicker'>
+                          <input type='text' autocomplete="off" class="form-control m-input" id='breakStart' name="breakstart" >
+                          <div class="input-group-append">
+                            <span class="input-group-text">
+                              <i class="la la-clock-o"></i>
+                            </span>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 col-md-7 col-lg-4">
+                          <div class='input-group timepicker'>
+                              <input type='text' autocomplete="off" class="form-control m-input" id='breakStop' name="breakstop">
+                              <div class="input-group-append">
+                                <span class="input-group-text">
+                                  <i class="la la-clock-o"></i>
+                                </span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-3 col-md-6 col-lg-4">
+                         
+                              <button type='button' autocomplete="off" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"(click)="addBreak()" >
+                                <i class="la la-plus"></i>
+                                ADD
+                              </button>
+                            
+                      </div>
+                  </div>
+                  <div>
+                      <input type="text" class="form-control" name="bktime" [(ngModel)]="punchingEditObj.breakTime">
+                  </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-12">
+							        <label for="recipient-name" class="form-control-label">
+								          Logout Time
+                      </label>
+              
+                      <div class='input-group timepicker'>
+                        <input type='text' autocomplete="off" class="form-control m-input" id='m_timepicker_2_modal' name="logoutTime" [ngModel]="punchingEditObj.logoutTime | date:'hh:mm'"  placeholder="Select time">
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            <i class="la la-clock-o"></i>
+                          </span>
+                        </div>
+                        </div>
+                    
+                  </div>
+						</div>
+            </div>
+ 
+            <div class="form-group">
+              <div class="form-group m-form__group row">
+                  <div class="col-lg-12">
+                    
+                  <label for="recipient-name" class="form-control-label">
+                    Team Lead
+                  </label>
+              
+                  <select class="form-control m-input" name="teamlead" [(ngModel)]="punchingEditObj.teamlead">                   
+                    <option disabled>Select Team Lead</option> 
+                    <option>Maulik Patel</option>              
+                  </select>
+                  </div>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <div class="form-group m-form__group row">
+                <div class="col-lg-12">
+                  <label for="recipient-name" class="form-control-label">
+                    Comments
+                  </label>
+                  <input type="text" class="form-control" name="comments" [(ngModel)]="punchingEditObj.comments">
+                </div>
+              </div>
+						</div>
+					
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+					<button type="button" (click)="onNewSubmit()" class="btn btn-primary" id="punchsave">
+						Save Changes
+					</button>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Edit Time Punching
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                &times;
+              </span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form id="editPunchForm" #form>
+               
+              <div class="form-group">
+                   
+                    <input type="hidden" 
+                    [(ngModel)]="punchingEditObj.idPunching" name="idpunching">
+                    
+              </div>
+     
+              <div class="form-group">
+                <label for="recipient-name" class="form-control-label">
+                  Login Time
+                </label>
+                  <div>
+                    <div class='input-group timepicker' >
+                      <input type='text' autocomplete="off" class="form-control m-input" id='m_timepicker_2_modal' name="loginTime" [ngModel]="punchingEditObj.loginTime | date:'hh:mm'" (ngModelChange)="onchangein($event)" placeholder="Select time">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="la la-clock-o"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="recipient-name" class="form-control-label">
+                  Break Time
+                </label>
+                <div class=" form-group m-form__group row">
+                    <div class="col-sm-4 col-md-7 col-lg-4">
+                      <div class='input-group timepicker'>
+                          <input type='text' autocomplete="off" class="form-control m-input" id='editBreakStart' name="breakstart" >
+                          <div class="input-group-append">
+                            <span class="input-group-text">
+                              <i class="la la-clock-o"></i>
+                            </span>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-4 col-md-7 col-lg-4">
+                          <div class='input-group timepicker'>
+                              <input type='text' autocomplete="off" class="form-control m-input" id='editBreakStop' name="breakstop">
+                              <div class="input-group-append">
+                                <span class="input-group-text">
+                                  <i class="la la-clock-o"></i>
+                                </span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-3 col-md-6 col-lg-4">
+                         
+                              <button type='button' autocomplete="off" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"(click)="addEditBreak()" >
+                                <i class="la la-plus"></i>
+                                ADD
+                              </button>
+                            
+                      </div>
+                  </div>
+                  <div>
+                      <input type="text" class="form-control" name="bktime" [(ngModel)]="punchingEditObj.breakTime">
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                  <div class="form-group m-form__group row">
+                      <div class="col-lg-12">
+                        <label for="recipient-name" class="form-control-label">
+                            Logout Time
+                        </label>
+                
+                        <div class='input-group timepicker'>
+                          <input type='text' autocomplete="off" class="form-control m-input" id='m_timepicker_2_modal' name="logoutTime" [ngModel]="punchingEditObj.logoutTime | date:'hh:mm'"  placeholder="Select time">
+                          <div class="input-group-append">
+                            <span class="input-group-text">
+                              <i class="la la-clock-o"></i>
+                            </span>
+                          </div>
+                          </div>
+                      
+                    </div>
+              </div>
+              </div>
+   
+              <div class="form-group">
+                <div class="form-group m-form__group row">
+                    <div class="col-lg-12">
+                      
+                    <label for="recipient-name" class="form-control-label">
+                      Team Lead
+                    </label>
+                
+                    <select class="form-control m-input" name="teamlead" [(ngModel)]="punchingEditObj.teamlead">                   
+                      <option disabled>Select Team Lead</option> 
+                      <option>Maulik Patel</option>              
+                    </select>
+                    </div>
+                </div>
+  
+              </div>
+  
+              <div class="form-group">
+                <label for="recipient-name" class="form-control-label">
+                  Comments
+                </label>
+                <input type="text" class="form-control" name="comments" [(ngModel)]="punchingEditObj.comments">
+              </div>
+            
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+            <button type="button" (click)="onPunchSubmit(punchingEditObj.idPunching)" class="btn btn-primary" id="punchsave">
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<!-- Punching Form End -->

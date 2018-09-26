@@ -1,0 +1,105 @@
+<div class="m-subheader" appunwraptag="" style="padding: 10px 30px 0 35px;">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">
+        Request New License 
+			</h3>
+			<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a href="#" class="m-nav__link m-nav__link--icon">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+              Licenses
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Request New License
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div>
+			
+		</div>
+	</div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content" style="width:100%;">
+
+      <div  class="alert alert-brand m-alert m-alert--icon m-alert--air m-alert--square m--margin-bottom-30" role="alert" style="margin-bottom: 10px !important;background-color:#d5d2f1;    width: 100%;">
+        <div class="m-alert__text" style="color: black;font-weight: 400;" >
+          Request for License Key
+        </div>
+      </div>
+
+
+  <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+    <div class="m-portlet__head headsize" >
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <span class="m-portlet__head-icon">
+            <i class="fa fa-key"></i>
+          </span>
+          <h3 class="m-portlet__head-text">
+						Request New License
+          </h3>
+        </div>
+      </div>
+     
+    </div>
+   
+    <div class="m-portlet__body">     
+      <div class="row" >
+        <div class="col-lg-6" style="margin-left:25%;margin-right: 25%;">
+          <div class="m-portlet m-portlet--tab">
+          
+            <!--begin::Form-->
+            <form class="m-form m-form--fit m-form--label-align-right" id="exitform" action="">
+              <div class="m-portlet__body">
+                <div class="form-group m-form__group row">
+                  <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                    Registration key
+                  </label>
+                  <div class="col-9">
+                    <input type="text" class="form-control m-input m-input--air" [(ngModel)]="regkey" name="regkey">
+                  </div>
+                </div>
+                <div class="m-form__actions"  style="padding-left:40%">
+                  <button type="button" (click)="requestLicense()" class="btn btn-accent" style="width: 50%;">
+                    Generate License
+                  </button>
+                </div>
+                <div class="form-group m-form__group row">
+                  <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                    License key
+                  </label>
+                  <div class="col-9">
+                    <input type="text" class="form-control m-input m-input--air" [(ngModel)]="licensekey" name="licensekey">
+                  </div>
+                </div>
+
+              </div>
+            </form>
+            <!--end::Form-->
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,783 @@
+<!-- BEGIN: Left Aside -->
+<button class="m-aside-left-close  m-aside-left-close--skin-dark" id="m_aside_left_close_btn" appunwraptag="">
+	<i class="la la-close"></i>
+</button>
+<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark">
+	<!-- BEGIN: Aside Menu -->
+	<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark" m-menu-vertical="1" m-menu-scrollable="0"
+	 m-menu-dropdown-timeout="500">
+		<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow">
+			<li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+				<a routerLink="/index" class="m-menu__link">
+					<i class="m-menu__link-icon flaticon-line-graph"></i>
+					<span class="m-menu__link-title">
+						<span class="m-menu__link-wrap">
+							<span class="m-menu__link-text">
+								Dashboard
+							</span>
+							<span class="m-menu__link-badge">
+								<span class="m-badge m-badge--danger">
+									2
+								</span>
+							</span>
+						</span>
+					</span>
+				</a>
+			</li>
+
+			<li class="m-menu__section">
+				<h4 class="m-menu__section-text">
+					MIPL PORTAL
+				</h4>
+				<i class="m-menu__section-icon flaticon-more-v3"></i>
+			</li>
+			<li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--open" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true" m-menu-submenu-toggle="hover">
+				<a href="javascript:;" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon flaticon-interface-9"></i>
+					<span class="m-menu__link-text">
+						Human Resources
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+					
+						<li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+							<a routerLink="/index/hrPolicy" class="m-menu__link">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									HR Policy
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/users" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Users
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/allemployeeprofiles" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									All Profiles
+								</span>
+							</a>
+						</li>
+
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/myprofile" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									My Profile
+								</span>
+							</a>
+						</li>
+
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/employeeform" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Employee Form
+								</span>
+							</a>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+								<a class="m-menu__link" routerLink="/index/holidays" >
+									<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+										<span></span>
+									</i>
+									<span class="m-menu__link-text">
+										Holidays
+									</span>
+								</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/exitform" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Exit Form
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/exitemployeerecords" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Exit Employee Records
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-user-o"></i>
+					<span class="m-menu__link-text">
+						Interview Module
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Interview Module
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveoptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/allprofiles">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Candidates Details
+								</span>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }">
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-key"></i>
+					<span class="m-menu__link-text">
+						Licenses
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										Licenses
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveoptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/requestLicense">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Request New Licenses
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveoptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/pendingLicense">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Pending Licenses
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveoptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/generateLicense">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Generate License
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveoptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/licensedetails">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									All Licenses
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-clock-o"></i>
+					<span class="m-menu__link-text">
+						Punching
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										Punching
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/punching">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Time Punching
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/punchingRecords">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Punching Records
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/modifiedRecords">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Modified Records
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-comments "></i>
+					<span class="m-menu__link-text">
+						Scrum
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Scrum
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveoptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/myScrum" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									My Scrum
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/components/timeline/timeline-2" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									All Scrum
+								</span>
+							</a>
+						</li>
+
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/components/timeline/timeline-2" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Team Scrum
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-gear"></i>
+					<span class="m-menu__link-text">
+						Configuration
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Configuration
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/components/calendar/basic">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Mail
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-calendar"></i>
+					<span class="m-menu__link-text">
+						Leave Management
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										Leave Management
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/leave" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Manage Leave
+								</span>
+							</a>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/appovalRecords">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Approval Records
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/index/assignLeave">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Assign Leave
+								</span>
+							</a>
+						</li>
+
+
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-random"></i>
+					<span class="m-menu__link-text">
+						Shift
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Shift
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/components/calendar/basic">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Shift Scheduled
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }">
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-rupee"></i>
+					<span class="m-menu__link-text">
+						Salary
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Salary
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/components/calendar/basic">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Salary Calculation
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-ticket"></i>
+					<span class="m-menu__link-text">
+						IT Request
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										IT Request
+								</span>
+							</span>
+						</li>
+						
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/requestform">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Request Form
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/approvependriveReq">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Approve Pendrive Request
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/approveInternetReq">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Approve Internet Access Request
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/approveFolderReq">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Approve Folder Access Request
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/approveStationeryItemReq">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Approve Stationery Item Request
+								</span>
+							</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/index/inventoryStock">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Inventory
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }">
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-edit"></i>
+					<span class="m-menu__link-text">
+						Notes
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Notes
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/components/maps/google-maps">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Notes
+								</span>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</li>
+
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-newspaper-o"></i>
+					<span class="m-menu__link-text">
+						Mechanical Access
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										Mechanical Access
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+							<a class="m-menu__link" routerLink="/components/utils/session-timeout" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Site Access
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-wikipedia-w"></i>
+					<span class="m-menu__link-text">
+						ISO Document
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										ISO Document
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActivOptions="{ exact: true }">
+								<a class="m-menu__link" routerLink="/components/utils/session-timeout" >
+									<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+										<span></span>
+									</i>
+									<span class="m-menu__link-text">
+										Engg Change Sheet
+									</span>
+								</a>
+						</li>
+
+						<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActivOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/components/utils/session-timeout" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Engg Change Record
+								</span>
+							</a>
+						</li>
+
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActivOptions="{ exact: true }">
+							<a class="m-menu__link" routerLink="/components/utils/session-timeout" >
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Project Closure
+								</span>
+							</a>
+					</li>
+
+					<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActivOptions="{ exact: true }">
+						<a class="m-menu__link" routerLink="/components/utils/session-timeout" >
+							<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+								<span></span>
+							</i>
+							<span class="m-menu__link-text">
+								Project Closure Record
+							</span>
+						</a>
+					</li>
+						
+					</ul>
+				</div>
+			</li>
+
+			
+			<li aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-file-o"></i>
+					<span class="m-menu__link-text">
+						File Browser
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+										File Browser
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+								<a class="m-menu__link" routerLink="/components/utils/session-timeout">
+									<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+										<span></span>
+									</i>
+									<span class="m-menu__link-text">
+											File Browser
+									</span>
+								</a>
+						</li>
+
+					</ul>
+				</div>
+			</li>
+
+			<li *ngIf="isAdmin" aria-haspopup="true" class="m-menu__item  m-menu__item--submenu" m-menu-submenu-toggle="hover" routerlinkactive="m-menu__item--open" routerlinkactiveoptions="{ exact: true }" >
+				<a class="m-menu__link m-menu__toggle" href="javascript:;" ng-reflect-href="javascript:;">
+					<i class="m-menu__link-icon fa fa-adjust"></i>
+					<span class="m-menu__link-text">
+						Customer Feedback
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li aria-haspopup="true" class="m-menu__item  m-menu__item--parent" routerlinkactive="m-menu__item--active" routerlinkactiveoptions="{ exact: true }" ng-reflect-router-link-active-options="{ exact: true }" ng-reflect-router-link-active="m-menu__item--active">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									Customer Feedback
+								</span>
+							</span>
+						</li>
+						<li aria-haspopup="true" class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" >
+								<a class="m-menu__link" routerLink="/components/utils/session-timeout">
+									<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+										<span></span>
+									</i>
+									<span class="m-menu__link-text">
+											Request
+									</span>
+								</a>
+						</li>
+
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- END: Aside Menu -->
+</div>
+<!-- END: Left Aside -->

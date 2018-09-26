@@ -1,0 +1,252 @@
+<div class="m-subheader" appunwraptag="" style="padding: 10px 30px 0 35px;">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+          License Manager 
+      </h3>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          <a href="#" class="m-nav__link m-nav__link--icon">
+            <i class="m-nav__link-icon la la-home"></i>
+          </a>
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          <a href="" class="m-nav__link">
+            <span class="m-nav__link-text">
+              Licenses
+            </span>
+          </a>
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          <a href="" class="m-nav__link">
+            <span class="m-nav__link-text">
+                Generate Licenses
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content" style="width:100%;">
+  <div class="alert alert-brand m-alert m-alert--icon m-alert--air m-alert--square m--margin-bottom-30" role="alert" style="margin-bottom: 10px !important;background-color:#d5d2f1;    width: 100%;">
+    <div class="m-alert__text" style="color: black;font-weight: 350;height: 10px;font-family: sans-serif;" >
+        Generate Licenses
+    </div>
+  </div>
+  <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
+    <div class="m-portlet__head headsize" >
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <span class="m-portlet__head-icon">
+            <i class="fa fa-key"></i>
+          </span>
+          <h3 class="m-portlet__head-text">
+              Generate License
+          </h3>
+        </div>
+      </div>
+     
+    </div>
+   
+    <div class="m-portlet__body">
+            <div class="row" >
+                <div class="col-lg-6" style="margin-left:25%;margin-right: 25%;">
+                  <div class="m-portlet m-portlet--tab">
+                  
+                    <!--begin::Form-->
+                    <form class="m-form m-form--fit m-form--label-align-right" id="exitform" action="" (ngSubmit)="exitEmpDetailSubmit()">
+                      <div class="m-portlet__body">
+
+                          <div class="form-group m-form__group row">
+                                      <input type="hidden" [(ngModel)]="licenseObj.idLicenseDetail" >
+                          </div>
+
+                          <div class="form-group m-form__group row">
+
+                            <label for="fileupload" class="col-3 col-form-label" style="text-align:start;">Registration.mon</label>
+                            <div class="col-9">
+                            <input type="file"  name="file" (change)="onChange($event)">
+                            </div>
+                          
+                        </div>
+
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleTextarea" class="col-3 col-form-label" style="text-align:start;">
+                              </label>
+                              <div class="col-9">
+                                  <label class="m-checkbox m-checkbox--brand">
+                                      <input type="checkbox"   [(ngModel)]="licenseObj.internal">
+                                        Internal
+                                      <span></span>
+                                  </label>  
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                                <label for="exampleTextarea" class="col-3 col-form-label" style="text-align:start;">
+                                    License type
+                                  </label>
+                                <div class="col-9">
+                                    <div class="m-radio-list">
+                                        <label class="m-radio m-radio--solid m-radio--brand">Perpetual license
+                                          <input type="radio" name="licensetype" checked value="Perpetual License" [(ngModel)]="licensetype"  (change)="toggleSelection($event)"> 
+                                          <span></span>
+                                          </label>
+                                          <label class="m-radio m-radio--solid m-radio--brand">Time limited license
+                                            <input type="radio" name="licensetype" value="Time Limited License" [(ngModel)]="licensetype"  (change)="toggleSelection($event)"> 
+                                            <span></span>
+                                          </label>
+                                    </div>
+                                </div>
+                          </div>
+
+                          <div>
+                            <div class="form-group m-form__group row" [hidden]="!disablevalidity"> 
+                                <label for="recipient-name" class="col-3 col-form-label" style="text-align: start;">
+                                    License validity
+                                </label>
+                               
+                                <div class="col-9">
+                                  <div class="input-group date">
+                                    <input type="text" autocomplete="off" class="form-control m-input m-input--air" name="licensevalidity"  id="licensevalidity"/>
+                              
+                                        <div class=" input-group-append">
+                                            <span class="input-group-text" >
+                                              <i class="la la-calendar-check-o"></i>
+                                            </span>
+                                        </div>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div>
+                            <div class="form-group m-form__group row" [hidden]="disablevalidity"> 
+                              <label for="recipient-name" class="col-3 col-form-label" style="text-align: start;">
+                                  License validity
+                              </label>
+                             
+                              <div class="col-9">
+                                <div class="input-group date">
+                                  <input type="text" autocomplete="off" disabled class="form-control m-input m-input--air" name="licensevalidity"  id="licensevalidity"/>
+                            
+                                      <div class=" input-group-append">
+                                          <span class="input-group-text" >
+                                            <i class="la la-calendar-check-o"></i>
+                                          </span>
+                                      </div>
+                                      </div>
+                              </div>
+                          </div>
+                            </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Registration key
+                              </label>
+                              <div class="col-9">
+                                <input type="text" name="regkey" [(ngModel)]="licenseObj.registrationkey" class="form-control m-input m-input--air">
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Username
+                              </label>
+                              <div class="col-9">
+                                <input type="text"  name="firstname" [(ngModel)]="licenseObj.firstname" class="form-control m-input m-input--air" >
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Company Name
+                              </label>
+                              <div class="col-9">
+                                <input type="text" [(ngModel)]="licenseObj.company" class="form-control m-input m-input--air"  name="username">
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Email
+                              </label>
+                              <div class="col-9">
+                                <input type="text" [(ngModel)]="licenseObj.email" class="form-control m-input m-input--air"  name="username">
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Contact Number
+                              </label>
+                              <div class="col-9">
+                                <input type="text" [(ngModel)]="licenseObj.contactno" name="contactno" class="form-control m-input m-input--air"  >
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Address
+                              </label>
+                              <div class="col-9">
+                                <textarea [(ngModel)]="licenseObj.address" name="address" class="form-control m-input m-input--air"  ></textarea>
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Remarks
+                              </label>
+                              <div class="col-9">
+                                <textarea [(ngModel)]="licenseObj.remarks" name="remarks"  class="form-control m-input m-input--air"  ></textarea>
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  License Key
+                              </label>
+                              <div class="col-9">
+                                <input type="text" [(ngModel)]="licenseObj.licensekey" name="licensekey" class="form-control m-input m-input--air"  >
+                              </div>
+                          </div>
+
+                          <div class="form-group m-form__group row">
+                              <label for="exampleInputEmail1" class="col-3 col-form-label" style="text-align:start;">
+                                  Product
+                              </label>
+                              <div class="col-9">
+                                <input type="text" [(ngModel)]="licenseObj.application" name="application" class="form-control m-input m-input--air">
+                              </div>
+                          </div>
+
+                      </div>
+                      <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions" style="padding-left:30%">
+                          <button type="button" (click)="generateLicense()" class="btn btn-accent">
+                            Generate License Key
+                          </button>
+                          <button type="reset" class="btn btn-secondary">
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    <!--end::Form-->
+                  </div>
+                </div>
+              </div>
+    </div>
+  </div>
+</div>

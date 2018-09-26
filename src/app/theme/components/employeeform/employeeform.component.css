@@ -1,0 +1,43 @@
+input,textarea,select{
+    border: 1px solid #c2cad8;
+}
+
+.headsize{
+    height: 40px;
+}
+
+.headerchange
+{
+    color: black !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.linespacing{
+    padding-bottom: 0px;
+}
+
+.headertext{
+    padding-left: 25%;
+    font-weight: 600;
+    font-size: medium;
+    padding-top: 10;
+}
+.requirecolor
+{
+    color: red;
+}
+
+.tableCSS{
+    
+    margin-bottom: 0rem;
+}
+.sectionmargin
+{
+    margin: 10px 0 10px 0;
+}
+.table thead th{
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+}

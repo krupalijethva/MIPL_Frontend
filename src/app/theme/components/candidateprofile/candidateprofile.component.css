@@ -1,0 +1,38 @@
+.table-striped td, .table-striped th{
+
+  
+    border: 1px solid #ebecef;
+}
+
+.resize{
+    width: 20%;
+    font-family: sans-serif; 
+}
+
+.block
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+body,h4{
+    font-family: "Open Sans",sans-serif;
+}
+
+.headsize{
+    height: 40px;
+}
+.childbackcolor
+{
+    /* background-color: white; */
+    background-color: #948de7;
+    border-color: #948de7;
+
+}
+.spacetable{
+    padding: 1.0rem 1.0rem;
+}
+.m-portlet {
+    margin-bottom: 1.2rem;
+}
